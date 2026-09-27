@@ -18,7 +18,7 @@ with open("taskB1/inmap1.dat") as f:
     total = 0
     for i in range(a):
         dist = Decimal(f.readline())
-        print(f"#  {i + 1   }    {dist:<14}{round(dist * b, 1)}")
+        print(f"#  {i + 1}    {dist:<14}{round(dist * b, 1)}")
         total += dist * b
 
     print("========================================================================")
