@@ -41,7 +41,9 @@ with open("B/Precip.txt") as f:
         if day in days:
             if days[day] == "NA":
                 days[day] = float(amount)
-                total += [float(amount)]
+                total.append(float(amount))
+                # total += float(amount)
+                # не знаю это как бы одно и тоже типа extend но кароче решил поменять на нормальный append
             else:
                 errors.append((Errors.REPEAT, day, line))
         else:
@@ -71,8 +73,15 @@ Precipitation report for {town} during {month}, {year}
         else:
             print(f"{i:<5} {days[i]:<5}")
 
-    print(
+    if total:
+        print(
 f"""
 Minimum     Maximum     Average
 {min(total):>7.2f}     {max(total):>7.2f}     {sum(total) / MONTHS_DAY[month]:>7.2f}
+""")
+    else:
+        print(
+"""
+Minimum     Maximum     Average
+     NA          NA          NA
 """)
