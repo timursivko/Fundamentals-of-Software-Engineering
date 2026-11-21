@@ -28,7 +28,7 @@ with open("B/Precip.txt") as f:
     town = f.readline().strip()
     month, year = f.readline().strip().split(", ")
 
-    line = 1
+    line = 4 # да 3 строки вначале
 
     errors = []
     days = {i: "NA" for i in range(1, MONTHS_DAY[month] + 1)}
